@@ -118,7 +118,6 @@
 						error.status = -1;
 						error.target = err;
 					}
-
 					callback.call(context || callback, error);
 				} else {
 					xhr.abort();
@@ -241,6 +240,10 @@
 				result.coordinates = this._decodePolyline(responseRoute.geometry);
 			} else {
 				result.waypointIndices = waypointIndices;
+			}
+
+			if(this.options.postProcess) {
+				this.options.postProcess(result);
 			}
 
 			return result;
