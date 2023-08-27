@@ -243,7 +243,7 @@
 			}
 
 			if(this.options.postProcess) {
-				this.options.postProcess(result);
+				result = this.options.postProcess(result, responseRoute);
 			}
 
 			return result;
